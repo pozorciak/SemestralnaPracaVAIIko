@@ -33,6 +33,9 @@ Route::group(["middleware" => ["auth"]],function () {
 
 
 Route::get("/sluzby/add",[SluzbyController::class, "create"])->name("sluzby.add");
+Route::get("/sluzby/delete/{id}",[SluzbyController::class, "destroy"])->name("sluzby.delete");
+Route::get("/sluzby/edit/{sluzby}",[SluzbyController::class, "edit"])->name("sluzby.edit.update");
+
 
 Route::get("/sluzby/skiservis",function (){
    return view("sluzby/skiservis");
@@ -40,5 +43,6 @@ Route::get("/sluzby/skiservis",function (){
 Route::get("/sluzby/snowpark",function (){
    return view("sluzby/snowpark");
 });
+
 Route::resource("sluzby",SluzbyController::class);
 

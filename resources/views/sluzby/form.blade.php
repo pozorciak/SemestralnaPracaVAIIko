@@ -13,14 +13,15 @@
                 <h1>Pridajte ponuku na spolujazdu</h1>
                 <div class="form-row">
                     <div class="col">
-                        <input type="text" class="form-control formular" name="meno" id="fname" pattern= "[A-zÀ-ž]{2,}"
+                        <input type="text" class="form-control formular" name="meno" id="fname" pattern="[A-zÀ-ž]{2,}"
                                placeholder="Meno"
-                               value= "{{ old("meno", @$model->meno) }}"
+                               value="{{ old("meno", @$model->meno) }}"
                                required minlength="2" maxlength="50">
                         <div class="invalid-feedback">Prosím, zadajte meno</div>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control formular" name="priezvisko" id="lname" pattern= "[A-zÀ-ž]{2,}"
+                        <input type="text" class="form-control formular" name="priezvisko" id="lname"
+                               pattern="[A-zÀ-ž]{2,}"
                                placeholder="Priezvisko"
                                value="{{ old("priezvisko", @$model->priezvisko) }}"
                                required minlength="2" maxlength="50">
@@ -39,7 +40,8 @@
                         <div class="invalid-feedback">Prosím, zadajte e-mail</div>
                     </div>
                     <div class="col">
-                        <input type="city" class="form-control formular" name="mesto" id="city" pattern= "^\S[A-zÀ-ž\s]{2,}"
+                        <input type="city" class="form-control formular" name="mesto" id="city"
+                               pattern="^\S[A-zÀ-ž\s]{2,}"
                                placeholder="Mesto odkiaľ je ponúkaný odvoz"
                                value="{{ old("mesto", @$model->mesto) }}"
                                required minlength="2" maxlength="50">
@@ -59,14 +61,19 @@
             <div class="col-md-12 bg-dark">
                 <div class="form-row">
                     <div class="col">
-                            <textarea type="textarea" name="poznamka" class="form-control formular" placeholder="Poznámka.Tu upresnite informácie o mieste ."
-                                      >{{ old("poznamka", @$model->poznamka) }}</textarea>
+                            <textarea type="textarea" name="poznamka" class="form-control formular"
+                                      placeholder="Poznámka.Tu upresnite informácie o mieste ."
+                            >{{ old("poznamka", @$model->poznamka) }}</textarea>
                         <div class="invalid-feedback">Prosím, zadajte poznámku</div>
                     </div>
                 </div>
             </div>
             <div class="col-md-12 bg-dark ">
-                <input type="submit" value="Odoslať">
+                {{--                <input type="submit" value="Odoslať">--}}
+
+                <button type="submit" class="btn btn-primary">
+                    Odoslať
+                </button>
             </div>
         </div>
     </form>

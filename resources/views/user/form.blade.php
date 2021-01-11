@@ -7,8 +7,8 @@
     @csrf
     @method($method)
     <div class="form-group">
-        <label for="name">Full name</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Full name" value="{{ old("name", @$model->name) }}">
+        <label for="name">Meno</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Meno" value="{{ old("name", @$model->name) }}">
     </div>
     <div class="form-group">
         <label for="email">Email address</label>

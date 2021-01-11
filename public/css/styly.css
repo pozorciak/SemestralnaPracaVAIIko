@@ -97,6 +97,10 @@ i{
 /*    background-image: url("/public/images/poz1.jpg");*/
 /*}*/
 
+.card-body{
+    padding-bottom: 0px;
+}
+
 .card-body p {
     color:black;
 }
