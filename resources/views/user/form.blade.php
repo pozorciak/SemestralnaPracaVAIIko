@@ -11,16 +11,16 @@
         <input type="text" class="form-control" id="name" name="name" placeholder="Meno" value="{{ old("name", @$model->name) }}">
     </div>
     <div class="form-group">
-        <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" value="{{ old("email",@$model->email) }}">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <label for="email">E-mail</label>
+        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="E-mail" value="{{ old("email",@$model->email) }}">
+{{--        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>--}}
     </div>
     <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        <label for="password">Heslo</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Heslo">
     </div> <div class="form-group">
-        <label for="password">Password again</label>
-        <input type="password" class="form-control" id="password" name="password_confirmation" placeholder="Password">
+        <label for="password">Potvrdenie hesla</label>
+        <input type="password" class="form-control" id="password" name="password_confirmation" placeholder="Heslo">
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

@@ -109,15 +109,15 @@ class SluzbyController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Sluzby  $sluzby
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
+     * @return int
      */
     public function destroy($id)
     {
         Sluzby::destroy($id);
         //$sluzby->delete();
-        return redirect()->route('sluzby.index');
+        //return json_encode(array('statusCode' => 200));
+//          return redirect()->route('sluzby.index');
     }
-
 
 
 }

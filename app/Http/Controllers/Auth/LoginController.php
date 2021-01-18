@@ -44,6 +44,28 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-   
+   public function login(Request $request)
+   {
+       $this->validate($request, [
+           'email' => 'required|email',
+           'password' => 'required|max:55|min:8',
+       ]);
+
+//       auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')]);
+//
+//       return redirect()->route('sluzby.index');
+
+       $remember_me = $request->has('remember_me') ? true : false;
+
+       if (auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')],
+           $remember_me))
+       {
+           $user = auth()->user();
+           return redirect()->route('sluzby.index');
+       }else{
+           return back()->with('error','your username and password are wrong.');
+       }
+   }
 
 }
+

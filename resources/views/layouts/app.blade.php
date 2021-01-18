@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="sk">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/script.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -53,11 +54,11 @@
 
 <div class="web-content">
 </div>
-</body>
-</html>
+{{--</body>--}}
+{{--</html>--}}
 
 
-<body>
+{{--<body>--}}
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
@@ -80,7 +81,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <ul class="navbar-nav mr-auto">
+{{--                        <ul class="navbar-nav mr-auto">--}}
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{ url('/') }}">Domov <span class="sr-only">(current)</span></a>
                             </li>
@@ -129,7 +130,7 @@
                                 </li>
                             @endguest
 
-                        </ul>
+{{--                        </ul>--}}
                     </ul>
                 </div>
             </div>

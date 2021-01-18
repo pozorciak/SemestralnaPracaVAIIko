@@ -37,6 +37,7 @@ Route::get("/sluzby/delete/{id}",[SluzbyController::class, "destroy"])->name("sl
 Route::get("/sluzby/edit/{sluzby}",[SluzbyController::class, "edit"])->name("sluzby.edit.update");
 
 
+
 Route::get("/sluzby/skiservis",function (){
    return view("sluzby/skiservis");
 });

@@ -25,8 +25,9 @@ class UserController extends Controller
         $user = User::paginate(25);
         $grid = new Datagrid($user,$request->get("f",[]));
 
-        $grid->setColumn("name","Full name")
-            ->setColumn("email","Email adress")
+        $grid->setColumn("name","Meno a Priezvisko")
+            ->setColumn("email","E-mail")
+            ->setColumn("created_at","Datum registrácie")
             ->setActionColumn([
                 'wrapper' => function ($value, $row) {
                     return '<a href="' . route('user.edit', [$row->id]) . '" title="Edit" class="btn btn-sn btn-primary">Edit</a>

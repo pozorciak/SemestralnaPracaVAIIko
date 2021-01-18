@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <body class="Prihlasenie">
+    <body class="Login">
 
     <div class="container">
-        <img src="{{asset('images/poz3.jpg')}}" alt="poz1" class="pozadieLogin">
+        <img src="{{asset('images/poz3.jpg')}}" alt="poz1" class="pozadieStranok">
         <div class="row justify-content-center">
             <div class="col-md-5">
                 <div class="card">
@@ -13,11 +13,9 @@
                     <div class="card-body bg-dark">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
-
                             <div class="form-group row">
                                 {{--                                <label for="email"--}}
                                 {{--                                       class="col-md-4 col-form-label text-md-right" >{{ __('E-Mail Address') }}</label>--}}
-
                                 <div class="col-md-12 ">
                                     <input id="email" type="email"
                                            class="form-control @error('email') is-invalid @enderror" name="email"
@@ -51,7 +49,7 @@
 
                             <div class="form-group row">
                                 <div class="col-md-5">
-                                    <button type="submit" class="btn btn-primary" >
+                                    <button type="submit" class="btn btn-primary">
                                         {{ __('Prihlásiť sa') }}
                                     </button>
                                 </div>
@@ -66,8 +64,6 @@
 
                                     </div>
                                 </div>
-
-
 
 
                             </div>

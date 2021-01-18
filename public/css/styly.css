@@ -63,7 +63,7 @@ div p {
     font-size: large;
 }
 
-.pozadieLogin{
+.pozadieStranok{
     z-index: -1;
     object-fit: cover;
     position: fixed;

@@ -20,26 +20,29 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:v1.0" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="113e19ab-39b1-4cbf-8a0f-8e349d5ace59" name="Default Changelist" comment="Pridanie formulara na Spolujazdy">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2e2d83fa-8747-45be-a53b-c88c4c06c72e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2e2d83fa-8747-45be-a53b-c88c4c06c72e.xml" afterDir="false" />
+    <list default="true" id="113e19ab-39b1-4cbf-8a0f-8e349d5ace59" name="Default Changelist" comment="dorobenie CRUD operacii do sluzieb">
+      <change afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SluzbyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SluzbyController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Sluzby.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Sluzby.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/styly.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styly.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/sluzby/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sluzby/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/sluzby/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sluzby/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/sluzby/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sluzby/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sluzby/skiservis.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sluzby/skiservis.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sluzby/snowpark.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sluzby/snowpark.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -57,6 +60,7 @@
       <list>
         <option value="composer.json" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -249,7 +253,9 @@
       <workItem from="1609876673183" duration="1153000" />
       <workItem from="1610307736641" duration="13045000" />
       <workItem from="1610359634081" duration="3776000" />
-      <workItem from="1610390346718" duration="8621000" />
+      <workItem from="1610390346718" duration="10876000" />
+      <workItem from="1610465864707" duration="2463000" />
+      <workItem from="1610792663118" duration="35063000" />
     </task>
     <task id="LOCAL-00001" summary="Pridanie HomePage+obrazky">
       <created>1609415288665</created>
@@ -258,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609415288665</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="dorobenie CRUD operacii do sluzieb">
+      <created>1610401425841</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1610401425841</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +288,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="v1.0" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -294,7 +307,8 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="Pridanie HomePage+obrazky" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pridanie HomePage+obrazky" />
+    <MESSAGE value="dorobenie CRUD operacii do sluzieb" />
+    <option name="LAST_COMMIT_MESSAGE" value="dorobenie CRUD operacii do sluzieb" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609179102003">
@@ -344,10 +358,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1609876704443" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1609877226174">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1610401432133">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609877226174" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1610401432133" />
     <state x="859" y="397" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1609179204537">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -357,10 +371,10 @@
     </state>
     <state x="834" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040/-1600.-65.1600.860@0.0.1920.1040" timestamp="1609179185213" />
     <state x="834" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040@0.0.1920.1040" timestamp="1609852384051" />
-    <state x="846" y="171" width="762" height="368" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1610396955055">
+    <state x="846" y="171" width="762" height="368" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1610933344393">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="846" y="171" width="762" height="368" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610396955055" />
+    <state x="846" y="171" width="762" height="368" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610933344393" />
     <state x="725" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1609876616575">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

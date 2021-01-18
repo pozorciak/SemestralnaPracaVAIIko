@@ -1,7 +1,7 @@
 @extends("layouts.app")
 @section("content")
     <div>
-        <img src="{{asset('images/bakgrsnowpark.jpg')}}" alt="poz1" class="pozadieLogin">
+        <img src="{{asset('images/bakgrsnowpark.jpg')}}" alt="poz1" class="pozadieStranok">
         <div class="container">
             <div class="row mt-5">
                 <div class="col-md-12 bg-transparent ">
