@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PripomienkyController;
 use App\Http\Controllers\SluzbyController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -29,14 +30,13 @@ Route::group(["middleware" => ["auth"]],function () {
     Route::get("/user/{user}/delete",[UserController::class,"destroy"])->name("user.delete");
     Route::get("/users/ucet",[UserController::class,"ucet"])->name("ucet");
 
-
     });
-
-
 
 Route::get("/sluzby/add",[SluzbyController::class, "create"])->name("sluzby.add");
 Route::get("/sluzby/delete/{id}",[SluzbyController::class, "destroy"])->name("sluzby.delete");
 Route::get("/sluzby/edit/{sluzby}",[SluzbyController::class, "edit"])->name("sluzby.edit.update");
+
+Route::get("/pripomienky/add",[PripomienkyController::class, "create"])->name("pripomienky.add");
 
 
 
@@ -49,4 +49,5 @@ Route::get("/sluzby/snowpark",function (){
 
 
 Route::resource("sluzby",SluzbyController::class);
+Route::resource("pripomienky",PripomienkyController::class);
 

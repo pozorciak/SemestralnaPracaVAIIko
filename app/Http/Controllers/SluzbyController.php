@@ -103,10 +103,10 @@ class SluzbyController extends Controller
     {
         if (Auth::check() && (Auth::user()->name == "admin" || Auth::user()->id == $sluzby->created_by_id)) {
             $request->validate([
-                'meno' => 'required',
-                'priezvisko' => 'required',
-                'email' => 'required|email',
-                'mesto' => 'required',
+                'meno' => 'required|max:50|regex:/[A-zÀ-ž]{2,}/u',
+                'priezvisko' => 'required|max:50|regex:/[A-zÀ-ž]{2,}/u',
+                'email' => 'required|email|max:50|min:3',
+                'mesto' => 'required|max:50|regex:/^\S[A-zÀ-ž\s]{2,}/u',
                 'datum' => 'required'
             ]);
 

@@ -61,7 +61,7 @@ class LoginController extends Controller
            $remember_me))
        {
            $user = auth()->user();
-           return redirect()->route('sluzby.index');
+           return redirect()->route('home');
        }else{
            return back()->with('error','your username and password are wrong.');
        }

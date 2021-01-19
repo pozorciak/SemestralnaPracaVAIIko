@@ -147,8 +147,6 @@ i{
     padding-right: 2%;
 }
 
-
-
 .navbar-content
 {
     width:fit-content;
@@ -169,4 +167,11 @@ i{
 .dropdown-menu {
     padding: 1%;
     overflow: hidden;
+}
+
+.uvitaciaSprava h1{
+    font-size: xx-large;
+    color: white;
+    text-align: center;
+    font-family: Georgia, serif ;
 }
