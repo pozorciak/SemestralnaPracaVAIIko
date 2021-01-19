@@ -30,8 +30,8 @@ class UserController extends Controller
             ->setColumn("created_at","Datum registrácie")
             ->setActionColumn([
                 'wrapper' => function ($value, $row) {
-                    return '<a href="' . route('user.edit', [$row->id]) . '" title="Edit" class="btn btn-sn btn-primary">Edit</a>
-                    <a href="' . route('user.delete', [$row->id]) . '" title="Delete" data-method="DELETE" class="btn btn-sn btn-danger" data-confirm="Are you sure?">Delete</a>';
+                    return '<a href="' . route('user.edit', [$row->id]) . '" title="Edit" class="btn btn-sn btn-primary">Editovať</a>
+                    <a href="' . route('user.delete', [$row->id]) . '" title="Delete" data-method="DELETE" class="btn btn-sn btn-danger" data-confirm="Are you sure?">Zmazať</a>';
                 }
             ]);
 
@@ -62,9 +62,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,',
-            'password' => 'required|min:8|confirmed']);
+            'name' => 'required|max:255|min:2',
+            'email' => 'required|email|min:3|max:255|unique:users,email,',
+            'password' => 'required|min:8|confirmed|max:255']);
 
         $user = User::create($request->all());
         $user->save();
@@ -108,12 +108,12 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-            'password' => 'required|min:8|confirmed']);
+            'name' => 'required|max:255|min:2',
+            'email' => 'required|email|min:3|max:255|unique:users,email,',
+            'password' => 'required|min:8|confirmed|max:255']);
 
         $user->update($request->all());
-        return redirect()->route('user.index');
+        return redirect()->route('home');
     }
 
     /**
@@ -128,5 +128,8 @@ class UserController extends Controller
         return redirect()->route('user.index');
     }
 
+    public function ucet(){
+        return view('user.ucet');
+    }
 
 }

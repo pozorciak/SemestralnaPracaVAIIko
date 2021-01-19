@@ -83,19 +83,13 @@ i{
     font-size: x-small;
 }
 
-/*.Register {*/
-/*    background-image: url("/public/obr/poz1.jpg");*/
-/*}*/
+.formular:invalid{
+    border-color: red;
+}
 
-
-/*.Pridaj {*/
-/*    background-image: url("/public/obr/poz2.jpg");*/
-
-/*}*/
-
-/*.PonukyIndex{*/
-/*    background-image: url("/public/images/poz1.jpg");*/
-/*}*/
+.formular:valid{
+    border-color: green;
+}
 
 .card-body{
     padding-bottom: 0px;
@@ -131,6 +125,48 @@ i{
 
 }
 
-.navbar-brand {
-    size: 50px;
+.navbar-brand img {
+   height: fit-content;
+}
+
+.navbar-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    margin-top: 1%;
+}
+
+.navbar-wrapper .container {
+    padding-left: 0%;
+    padding-right: 0%;
+}
+.navbar-wrapper .navbar {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+
+
+.navbar-content
+{
+    width:fit-content;
+    padding: 5%;
+    padding-bottom:1%;
+}
+.navbar-content:before, .navbar-content:after
+{
+    display: table;
+    content: "";
+    line-height: 0;
+}
+
+.tlacidlo{
+    margin-bottom: 2%;
+}
+
+.dropdown-menu {
+    padding: 1%;
+    overflow: hidden;
 }

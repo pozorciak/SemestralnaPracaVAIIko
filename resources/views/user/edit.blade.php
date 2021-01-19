@@ -6,9 +6,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card bg-dark">
-                    <div class="card-header bg-dark">{{ __('Editácia užívateľa') }}</div>
+                    <div class="card-header bg-dark text-white">{{ __('Editácia užívateľa')  }} {{ Auth::user()->name }}</div>
 
-                    <div class="card-body bg-dark">
+                    <div class="card-body bg-dark text-white">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}

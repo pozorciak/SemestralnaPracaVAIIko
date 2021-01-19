@@ -23,5 +23,5 @@
         <input type="password" class="form-control" id="password" name="password_confirmation" placeholder="Heslo">
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary tlacidlo">Odoslať</button>
 </form>

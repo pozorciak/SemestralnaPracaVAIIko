@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Sluzby;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use const http\Client\Curl\AUTH_ANY;
 
 class SluzbyController extends Controller
 {
@@ -16,7 +18,8 @@ class SluzbyController extends Controller
      */
     public function index()
     {
-        $sluzby = Sluzby::paginate(100);
+        $sluzby = Sluzby::paginate(40);
+       //$sluzby =DB::table('ponuky')->paginate(4);
         return view("sluzby.index",compact("sluzby"));
 
     }
@@ -28,11 +31,12 @@ class SluzbyController extends Controller
      */
     public function create()
     {
-
-        return view("sluzby.add",[
-            "action" => route("sluzby.store"),
-            "method" => "post"
-        ]);
+        if (Auth::check()) {
+            return view("sluzby.add", [
+                "action" => route("sluzby.store"),
+                "method" => "post"
+            ]);
+        }
     }
 
     /**
@@ -43,19 +47,21 @@ class SluzbyController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'meno' => 'required',
-            'priezvisko' => 'required',
-            'email' => 'required|email',
-            'mesto' => 'required',
-            'datum' => 'required'
-        ]);
+        if (Auth::check()) {
+            $request->validate([
+                'meno' => 'required|max:50|regex:/[A-zÀ-ž]{2,}/u',
+                'priezvisko' => 'required|max:50|regex:/[A-zÀ-ž]{2,}/u',
+                'email' => 'required|email|max:50|min:3',
+                'mesto' => 'required|max:50|regex:/^\S[A-zÀ-ž\s]{2,}/u',
+                'datum' => 'required'
+            ]);
 
-        $sluzby = Sluzby::create($request->all());
-        $sluzby->created_by_id = Auth::user()->id;
+            $sluzby = Sluzby::create($request->all());
+            $sluzby->created_by_id = Auth::user()->id;
 
-        $sluzby->save();
-        return redirect()->route("sluzby.index");
+            $sluzby->save();
+            return redirect()->route("sluzby.index");
+        }
     }
 
     /**
@@ -77,11 +83,13 @@ class SluzbyController extends Controller
      */
     public function edit(Sluzby $sluzby)
     {
-        return view('sluzby.edit', [
-            'action' => route('sluzby.update', $sluzby->id),
-            'method' => 'put',
-            'model' => $sluzby
-        ]);
+        if (Auth::check() && (Auth::user()->name == "admin" || Auth::user()->id == $sluzby->created_by_id)) {
+            return view('sluzby.edit', [
+                'action' => route('sluzby.update', $sluzby->id),
+                'method' => 'put',
+                'model' => $sluzby
+            ]);
+        }
     }
 
     /**
@@ -93,16 +101,18 @@ class SluzbyController extends Controller
      */
     public function update(Request $request, Sluzby $sluzby)
     {
-        $request->validate([
-            'meno' => 'required',
-            'priezvisko' => 'required',
-            'email' => 'required|email',
-            'mesto' => 'required',
-            'datum' => 'required'
-        ]);
+        if (Auth::check() && (Auth::user()->name == "admin" || Auth::user()->id == $sluzby->created_by_id)) {
+            $request->validate([
+                'meno' => 'required',
+                'priezvisko' => 'required',
+                'email' => 'required|email',
+                'mesto' => 'required',
+                'datum' => 'required'
+            ]);
 
-        $sluzby->update($request->all());
-        return redirect()->route('sluzby.index');
+            $sluzby->update($request->all());
+            return redirect()->route('sluzby.index');
+        }
     }
 
     /**
@@ -113,11 +123,15 @@ class SluzbyController extends Controller
      */
     public function destroy($id)
     {
-        Sluzby::destroy($id);
-        //$sluzby->delete();
-        //return json_encode(array('statusCode' => 200));
-//          return redirect()->route('sluzby.index');
+        if (Auth::check() && (Auth::user()->name == "admin" || Auth::user()->id == Sluzby::find($id)->created_by_id)) {
+            Sluzby::destroy($id);
+        }
+
     }
 
+//    public function selectByOrder(){
+//        $vysledok = DB::select('select * from ponuky order by meno ', array(1));
+//        return $vysledok;
+//    }
 
 }

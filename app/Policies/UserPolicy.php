@@ -18,8 +18,6 @@ class UserPolicy
      */
     public function viewAny(User $user)
     {
-        //
-        //return true;
        return Auth::user()->name == 'admin';
     }
 
@@ -56,7 +54,7 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        return Auth::user()->name == 'admin';
+        return (Auth::user()->name == 'admin' || Auth::user()->id ==  $model->id);
     }
 
     /**
@@ -68,7 +66,7 @@ class UserPolicy
      */
     public function delete(User $user, User $model)
     {
-        return Auth::user()->name == 'admin';
+        return (Auth::user()->name == 'admin' || Auth::user()->id ==  $model->id);
     }
 
     /**

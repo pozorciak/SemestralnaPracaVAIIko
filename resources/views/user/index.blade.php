@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('Users') }}</div>
+                    <div class="card-header">Používatelia</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -14,11 +14,12 @@
                             </div>
                         @endif
                         @can("create",\App\Models\User::class)
-                        <div class="mb-3">
-                            <a href="{{ route("user.create") }}" class="btn btn-sm btn-success" role="button">Add new user</a>
-                        </div>
-                            @endcan
+                        @endcan
                         {!! $grid->show() !!}
+                        <div class="mb-3">
+                            <a href="{{ route("user.create") }}" class="btn btn-sm btn-block" role="button">+ Pridať
+                                nového používateľa</a>
+                        </div>
                     </div>
                 </div>
             </div>

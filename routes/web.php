@@ -27,6 +27,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(["middleware" => ["auth"]],function () {
     Route::resource("user", UserController::class);
     Route::get("/user/{user}/delete",[UserController::class,"destroy"])->name("user.delete");
+    Route::get("/users/ucet",[UserController::class,"ucet"])->name("ucet");
+
 
     });
 
@@ -44,6 +46,7 @@ Route::get("/sluzby/skiservis",function (){
 Route::get("/sluzby/snowpark",function (){
    return view("sluzby/snowpark");
 });
+
 
 Route::resource("sluzby",SluzbyController::class);
 

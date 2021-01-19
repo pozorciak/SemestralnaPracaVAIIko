@@ -4,10 +4,29 @@
 
     {{--    <body class=PonukyIndex></body>--}}
 
+
+
     <div class="container rounded">
         <img src="{{asset('/images/poz1.jpg')}}" alt="poz1" class="pozadieStranok">
+{{--        <div class="btn-group" role="group">--}}
+{{--            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                Zoradit podla--}}
+{{--            </button>--}}
+{{--            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">--}}
+{{--                <button onclick="{{ $cisloSortu = 2 }}" value="1" class="sort dropdown-item" href="#">Datum ^</button>--}}
+{{--                <button value="2" class="sort dropdown-item" href="#">Dropdown link</button>--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <div class="row">
             @if($sluzby->count())
+{{--               <script>--}}
+{{--                   alert({{ $cisloSortu }})--}}
+{{--                    if ({{ $cisloSortu == 2 }}){--}}
+{{--                        alert("kokocina");--}}
+{{--                    }--}}
+
+{{--                   {{ $sluzby = $sluzby->sortBy('datum') }}--}}
+{{--               </script>--}}
                 @foreach($sluzby as $key => $ponuka)
                     <div class="ponuka col-md-6">
                         <div class="card mb-4 shadow-sm">
@@ -26,8 +45,13 @@
                                 </div>
                                 <div>
                                     <h5>Dátum odjazdu do strediska : </h5>
-                                    <p>{{ $ponuka->datum }}</p>
+                                    <p>{{ date('d F Y', strtotime($ponuka->datum))  }}</p>
                                 </div>
+                                <div>
+                                    <h5>Čas odjazdu : </h5>
+                                    <p>{{ date('H:i', strtotime($ponuka->datum))  }}</p>
+                                </div>
+
                                 <div>
                                     <h5>Poznamka: </h5>
                                     <p class="card-text">{{ $ponuka->poznamka }}</p>
@@ -72,6 +96,4 @@
     @endif
 @endsection
 
-<script>
 
-</script>

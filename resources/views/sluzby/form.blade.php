@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="col">
-                        <input type="datetime-local" class="form-control formular" name="datum" id="fname"
+                        <input type="datetime-local" class="form-control formular " name="datum" id="fname"
                                placeholder="datum"
                                value="{{ old("datum", @$model->datum) }}"
                                required minlength="2" maxlength="50">

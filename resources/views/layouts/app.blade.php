@@ -59,86 +59,121 @@
 
 
 {{--<body>--}}
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                  <img src="{{asset('images/logo.svg')}}" alt="logo">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<div id="app">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <img src="{{asset('images/logo.svg')}}" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        @auth
-                            <a class="nav-link" href="{{ route("user.index") }}" > {{ __("Users") }}</a>
-                        @endauth
-                    </ul>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+            {{--                <ul class="navbar-nav mr-auto">--}}
+            {{--                   --}}
+            {{--                </ul>--}}
 
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+            <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
 
-{{--                        <ul class="navbar-nav mr-auto">--}}
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ url('/') }}">Domov <span class="sr-only">(current)</span></a>
+                    {{--                        <ul class="navbar-nav mr-auto">--}}
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{ url('/') }}">Domov <span class="sr-only">(current)</span></a>
+                    </li>
+                    @auth
+                        @if(Auth::user()->name == "admin")
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{ route("user.index") }}">Používatelia</a>
                             </li>
+                        @endif
+                    @endauth
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false">Služby</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ url("/sluzby/skiservis") }}">Ski Servis</a>
+                            <a class="dropdown-item" href={{ route('sluzby.index') }}>Zdielaná spolujazda</a>
+                            <a class="dropdown-item" href="{{ url("/sluzby/snowpark") }}">SnowPark</a>
+                        </div>
+                    </li>
+                    <!-- Authentication Links -->
+                    @guest
+                        @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link" href="?c=home">O stredisku</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Prihlásenie') }}</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-                                   aria-expanded="false">Služby</a>
-                                <div class="dropdown-menu" aria-labelledby="dropdown0   1">
-                                    <a class="dropdown-item" href="{{ url("/sluzby/skiservis") }}" >Ski Servis</a>
-                                    <a class="dropdown-item" href={{ route('sluzby.index') }}>Zdielaná spolujazda</a>
-                                    <a class="dropdown-item" href="{{ url("/sluzby/snowpark") }}">SnowPark</a>
-                                </div>
-                            </li>
-                            <!-- Authentication Links -->
-                            @guest
-                                @if (Route::has('login'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Prihlásenie') }}</a>
-                                    </li>
-                                @endif
+                        @endif
+                    @else
+                        {{--                        <li class ="nav-item">--}}
+                        {{--                            <a class="nav-link" href="{{ route('user.edit', Auth::user()->id) }}">Môj účet</a>--}}
+                        {{--                        </li>--}}
 
-{{--                                @if (Route::has('register'))--}}
-{{--                                    <li class="nav-item">--}}
-{{--                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Registácia') }}</a>--}}
-{{--                                    </li>--}}
-{{--                                @endif--}}
-                            @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
-                                    </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Môj účet</a>
+                            <ul class="dropdown-menu bg-dark">
+                                <li>
+                                    <div class="navbar-content">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p class="text-muted small">{{ Auth::user()->name }}</p>
+                                                <span>{{ Auth::user()->email }}</span>
+                                                <div class="divider">
+                                                </div>
+                                                <a href="{{ route('ucet') }}"
+                                                   class="btn btn-primary btn-sm active tlacidlo">Zobraziť Profil</a>
+                                                <a href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"
+                                                   class="btn btn-primary btn-sm active tlacidlo">Odhlásiť sa</a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                      class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
                                 </li>
-                            @endguest
+                            </ul>
+                        </li>
 
-{{--                        </ul>--}}
-                    </ul>
-                </div>
+
+                        {{--                        <li class="nav-item dropdown">--}}
+                        {{--                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"--}}
+                        {{--                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
+                        {{--                                {{ Auth::user()->name }}--}}
+                        {{--                            </a>--}}
+
+                        {{--                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
+                        {{--                                <a class="dropdown-item" href="{{ route('logout') }}"--}}
+                        {{--                                   onclick="event.preventDefault();--}}
+                        {{--                                                     document.getElementById('logout-form').submit();">--}}
+                        {{--                                    {{ __('Logout') }}--}}
+                        {{--                                </a>--}}
+
+                        {{--                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
+                        {{--                                    @csrf--}}
+                        {{--                                </form>--}}
+                        {{--                            </div>--}}
+                        {{--                        </li>--}}
+                    @endguest
+
+                    {{--                        </ul>--}}
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+    <main class="py-4">
+        @yield('content')
+    </main>
+</div>
 </body>
 </html>
